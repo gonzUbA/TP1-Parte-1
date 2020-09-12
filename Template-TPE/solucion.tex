@@ -25,12 +25,12 @@
 
 % CAMBIAR INTEGRANTES
 \integrante{Teplizky, Gonzalo}{201/20}{gteplizky@dc.uba.ar}
-\integrante{apellido, nombre}{nro libreta}{email del dc}
+\integrante{Monteys, Lautaro}{5/20}{lmonteys@dc.uba.ar}
 \integrante{apellido, nombre}{nro libreta}{email del dc}
 \integrante{apellido, nombre}{nro libreta}{email del dc}
 
 \maketitle
-
+c
 
 
 \section{Ejercicios - Primera Parte}
@@ -75,6 +75,8 @@
 
 \begin{ejercicio}[:]
 \textbf{aux cantVecinosVivos(t: $\toroide$, f: $\ent$, c: $\ent$) = $\ent$}
+
+\auxil{cantVecinosVivos(t: toroide, f:\ent, c:\ent)}{\newline(\sum_{i=-1}^1 \sum_{j=-1}^1 \IfThenElse{t[(f+i) \enspace mod \enspace (length(t))]\,[(c+j) \enspace mod \enspace (length(t[0]))]}{1}{0}) - (\IfThenElse{t[f][c]}{1}{0})}
 
 \end{ejercicio}
 
