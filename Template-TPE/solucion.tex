@@ -76,7 +76,7 @@ c
 \begin{ejercicio}[:]
 \textbf{aux cantVecinosVivos(t: $\toroide$, f: $\ent$, c: $\ent$) = $\ent$}
 
-\auxil{cantVecinosVivos(t: toroide, f:\ent, c:\ent)}{\newline(\sum_{i=-1}^1 \sum_{j=-1}^1 \IfThenElse{t[(f+i) \enspace mod \enspace (length(t))]\,[(c+j) \enspace mod \enspace (length(t[0]))]}{1}{0}) - (\IfThenElse{t[f][c]}{1}{0})}
+\auxil{cantVecinosVivos(t: toroide, f:\ent, c:\ent) \, : \, $\ent$}{\newline(\sum_{i=-1}^1 \sum_{j=-1}^1 \IfThenElse{t[(f+i) \enspace mod \enspace (length(t))]\,[(c+j) \enspace mod \enspace (length(t[0]))]}{1}{0}) - (\IfThenElse{t[f][c]}{1}{0})}
 
 \end{ejercicio}
 
@@ -85,7 +85,7 @@ c
 \begin{ejercicio}[:]
 \textbf{pred evolucionDePosicion(t: $\toroide$, posicion : $\tupla{\ent}{\ent}$)}
 
-\pred{evolucionDePosicion}{t: $\toroide$, posicion : $\tupla{\ent}{\ent}$}{ }
+\pred{evolucionDePosicion}{t: $\toroide$, posicion : $\tupla{\ent}{\ent}$}{\IfThenElse{t[posicion_{0}][posicion_{1}]}{\\ cantVecinosVivos(t, posicion _{0},posicion _{1})> 1 \wedge cantVecinosVivos(t, posicion _{0},posicion _{1})< 4}{\\ cantVecinosVivos(t, posicion _{0},posicion _{1})= 3} }
 
 \end{ejercicio}
 
