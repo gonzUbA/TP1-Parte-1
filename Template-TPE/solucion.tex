@@ -45,13 +45,13 @@
 \begin{ejercicio}[:]
 \textbf{pred esValido(t: $\toroide$)}
 
-\pred{esValido}{t: $toroide$}{(\forall i : \mathds{Z}) (3\leq i < \longitud{t} \implicaLuego \longitud{i} = \longitud {t[0]})  }
+\pred{esValido}{t: $toroide$}{ \\  (\forall i : \mathds{Z}) (3\leq i < \longitud{t} \implicaLuego \longitud{i} = \longitud {t[0]}) \\ }
 \end{ejercicio}
 
 \begin{ejercicio}[:]
 \textbf{pred toroideMuerto(t: $\toroide$)}
 
-\pred{toroideMuerto}{t: $toroide$}{(\forall i : \mathds{Z}) (0\leq i < \longitud{t} \implicaLuego \neg  (\exists j: \mathds{Z}) (0 < j < \longitud{t[0]} \implicaLuego t[i][j] = \True)) }
+\pred{toroideMuerto}{t: $toroide$}{ \\ \hspace{8 cm} (\forall i : \mathds{Z}) (0\leq i < \longitud{t} \implicaLuego \neg  (\exists j: \mathds{Z}) (0 < j < \longitud{t[0]} \implicaLuego t[i][j] = \True)) \\ }
 
 \end{ejercicio}
 
@@ -59,7 +59,7 @@
 \begin{ejercicio}[:]
 \textbf{pred posicionesVivas(t: $\toroide$, vivas : $\TLista{\tupla{\ent}{\ent}}$)}
 
-\pred{posicionesVivas}{t: $\toroide$, vivas : $\TLista{\tupla{\ent}{\ent}}$}{(\forall x,y : \mathds{Z})[((0\leq x < \longitud{t} \wedge 0\leq y < \longitud{t[0]}) \yLuego t[x][y]= \True) \implicaLuego (x,y) \in vivas] \wedge (\forall v,w : \mathds{Z}) ((v,w)\in vivas \yLuego [(0<v<\longitud{t} \wedge 0<w<\longitud{t[0]}) \yLuego t[v][w] = \True])}
+\pred{posicionesVivas}{t: $\toroide$, vivas : $\TLista{\tupla{\ent}{\ent}}$}{ \\ (\forall x,y : \mathds{Z})[((0\leq x < \longitud{t} \wedge 0\leq y < \longitud{t[0]}) \yLuego t[x][y]) \implicaLuego (x,y) \in vivas] \\ \wedge \\ (\forall v,w : \mathds{Z}) ((v,w)\in vivas \yLuego [(0<v<\longitud{t} \wedge 0<w<\longitud{t[0]}) \yLuego t[v][w]]) \\ }
 
 \end{ejercicio}
 
@@ -83,12 +83,16 @@
 \begin{ejercicio}[:]
 \textbf{pred evolucionDePosicion(t: $\toroide$, posicion : $\tupla{\ent}{\ent}$)}
 
+\pred{evolucionDePosicion}{t: $\toroide$, posicion : $\tupla{\ent}{\ent}$}{ }
+
 \end{ejercicio}
 
 
 
 \begin{ejercicio}[:]
 \textbf{pred evolucionToroide(t1: $\toroide$, t2: $\toroide$)}
+
+\pred{evolucionToroide}{t1: $\toroide$, t2: $\toroide$}{ \\ (\longitud{t1} = \longitud{t2} \wedge \longitud{t1[0]} = \longitud{t2[0]}) \yLuego  \\(\forall x,y : \mathds{Z}) ((0\leq x < \longitud{t1[0]} \wedge 0\leq y < \longitud{t1})\implicaLuego (t2[x][y] = evolucionDePosicion(t1,(x,y)))) \\}
 
 \end{ejercicio}
 
