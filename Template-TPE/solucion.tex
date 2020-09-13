@@ -59,7 +59,7 @@ c
 \begin{ejercicio}[:]
 \textbf{pred posicionesVivas(t: $\toroide$, vivas : $\TLista{\tupla{\ent}{\ent}}$)}
 
-\pred{posicionesVivas}{t: $\toroide$, vivas : $\TLista{\tupla{\ent}{\ent}}$}{ \\ (\forall x,y : \mathds{Z})[((0\leq x < \longitud{t} \wedge 0\leq y < \longitud{t[0]}) \yLuego t[x][y]) \implicaLuego (x,y) \in vivas] \\ \wedge \\ (\forall v,w : \mathds{Z}) ((v,w)\in vivas \yLuego [(0<v<\longitud{t} \wedge 0<w<\longitud{t[0]}) \yLuego t[v][w]]) \\ }
+\pred{posicionesVivas}{t: $\toroide$, vivas : $\TLista{\tupla{\ent}{\ent}}$}{ \\ (\forall x,y : \mathds{Z})(((0\leq x < \longitud{t} \wedge 0\leq y < \longitud{t[0]}) \yLuego t[x][y]) \implicaLuego (x,y) \in vivas) \\ \wedge \\ (\forall v,w : \mathds{Z}) ((v,w)\in vivas \implicaLuego ((0 \leq v <\longitud{t} \wedge 0 \leq w<\longitud{t[0]}) \yLuego t[v][w])) \\ }
 
 \end{ejercicio}
 
