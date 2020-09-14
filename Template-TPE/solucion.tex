@@ -26,11 +26,11 @@
 % CAMBIAR INTEGRANTES
 \integrante{Teplizky, Gonzalo}{201/20}{gteplizky@dc.uba.ar}
 \integrante{Monteys, Lautaro}{5/20}{lmonteys@dc.uba.ar}
-\integrante{apellido, nombre}{nro libreta}{email del dc}
-\integrante{apellido, nombre}{nro libreta}{email del dc}
+\integrante{Stemberg, Uriel}{213/20}{ustemberg@dc.uba.ar}
+\integrante{Gómez, Fabián}{522/20}{flaguna@dc.uba.ar}
 
 \maketitle
-c
+
 
 
 \section{Ejercicios - Primera Parte}
@@ -68,7 +68,7 @@ c
 \begin{ejercicio}[:]
 \textbf{aux densidadPoblacion(t: $\toroide$) = $\float$}
 
-\auxil{densidadPoblacion(t: toroide) \, : \, $\float$}{\newline\frac{(\sum_{i=0}^ length((t)[0])-1 \sum_{j=0}^ length(t)-1 \IfThenElse{t[x][y]}{1}{0})}{length(t)length(t[0])}}
+\auxil{densidadPoblacion(t: toroide) \, : \, $\float$}{\newline \frac {(\sum_{i=0}^{|t[0]|-1} \sum_{j=0}^{|t|-1} \IfThenElse{t[x][y]}{1}{0})} {|t|*|t[0]|}}
 
 
 
@@ -80,7 +80,7 @@ c
 \begin{ejercicio}[:]
 \textbf{aux cantVecinosVivos(t: $\toroide$, f: $\ent$, c: $\ent$) = $\ent$}
 
-\auxil{cantVecinosVivos(t: toroide, f:\ent, c:\ent) \, : \, $\ent$}{\newline(\sum_{i=-1}^1 \sum_{j=-1}^1 \IfThenElse{t[(f+i) \enspace mod \enspace (length(t))]\,[(c+j) \enspace mod \enspace (length(t[0]))]}{1}{0}) - (\IfThenElse{t[f][c]}{1}{0})}
+\auxil{cantVecinosVivos(t: toroide, f:\ent, c:\ent) \, : \, $\ent$}{\newline(\sum_{i=-1}^1 \sum_{j=-1}^1 \IfThenElse{t[(f+i) \enspace mod \enspace (|t|)]\,[(c+j) \enspace mod \enspace (|t[0]|)]}{1}{0}) - (\IfThenElse{t[f][c]}{1}{0})}
 
 \end{ejercicio}
 
