@@ -32,7 +32,6 @@
 \maketitle
 
 
-
 \section{Ejercicios - Primera Parte}
 
 \aux{Aux}{i: \ent}{\bool}{\True}
@@ -45,13 +44,13 @@
 \begin{ejercicio}[:]
 \textbf{pred esValido(t: $\toroide$)}
 
-\pred{esValido}{t: $toroide$}{ \\  (\forall i : \mathds{Z}) (3\leq i < \longitud{t} \implicaLuego \longitud{i} = \longitud {t[0]}) \\ }
+\pred{esValido}{t: $toroide$}{ \\ (|t| \geq 3 \yLuego |t[0]| \geq 3) \newline \wedge \newline (\forall i : \mathds{Z}) (0\leq i < \longitud{t} \implicaLuego \longitud{t[i]} = \longitud {t[0]}) \\ }
 \end{ejercicio}
 
 \begin{ejercicio}[:]
 \textbf{pred toroideMuerto(t: $\toroide$)}
 
-\pred{toroideMuerto}{t: $toroide$}{ \\ \hspace{8 cm} (\forall i : \mathds{Z}) (0\leq i < \longitud{t} \implicaLuego \neg  (\exists j: \mathds{Z}) (0 < j < \longitud{t[0]} \implicaLuego t[i][j] = \True)) \\ }
+\pred{toroideMuerto}{t: $toroide$}{ \\ \hspace{8 cm} (\forall i : \mathds{Z}) (0\leq i < \longitud{t} \implicaLuego \neg  (\exists j: \mathds{Z}) (0 \leq j < \longitud{t[0]} \yLuego t[i][j])) \\ }
 
 \end{ejercicio}
 
@@ -68,7 +67,7 @@
 \begin{ejercicio}[:]
 \textbf{aux densidadPoblacion(t: $\toroide$) = $\float$}
 
-\auxil{densidadPoblacion(t: toroide) \, : \, $\float$}{\newline \frac {(\sum_{i=0}^{|t[0]|-1} \sum_{j=0}^{|t|-1} \IfThenElse{t[x][y]}{1}{0})} {|t|*|t[0]|}}
+\auxil{densidadPoblacion(t: toroide) \, : \, $\float$ \enspace}{\newline \frac {(\sum_{i=0}^{|t[0]|-1} \sum_{j=0}^{|t|-1} \IfThenElse{t[x][y]}{1}{0})} {|t|*|t[0]|}}
 
 
 
@@ -80,7 +79,7 @@
 \begin{ejercicio}[:]
 \textbf{aux cantVecinosVivos(t: $\toroide$, f: $\ent$, c: $\ent$) = $\ent$}
 
-\auxil{cantVecinosVivos(t: toroide, f:\ent, c:\ent) \, : \, $\ent$}{\newline(\sum_{i=-1}^1 \sum_{j=-1}^1 \IfThenElse{t[(f+i) \enspace mod \enspace (|t|)]\,[(c+j) \enspace mod \enspace (|t[0]|)]}{1}{0}) - (\IfThenElse{t[f][c]}{1}{0})}
+\auxil{cantVecinosVivos(t: toroide, f:\ent, c:\ent) \, : \, $\ent$ \enspace}{\newline(\sum_{i=-1}^1 \sum_{j=-1}^1 \IfThenElse{t[(f+i) \enspace mod \enspace (|t|)]\,[(c+j) \enspace mod \enspace (|t[0]|)]}{1}{0}) - (\IfThenElse{t[f][c]}{1}{0})}
 
 \end{ejercicio}
 
@@ -89,7 +88,7 @@
 \begin{ejercicio}[:]
 \textbf{pred evolucionDePosicion(t: $\toroide$, posicion : $\tupla{\ent}{\ent}$)}
 
-\pred{evolucionDePosicion}{t: $\toroide$, posicion : $\tupla{\ent}{\ent}$}{\IfThenElse{t[posicion_{0}][posicion_{1}]}{\\ cantVecinosVivos(t, posicion _{0},posicion _{1})> 1 \wedge cantVecinosVivos(t, posicion _{0},posicion _{1})< 4}{\\ cantVecinosVivos(t, posicion _{0},posicion _{1})= 3} }
+\pred{evolucionDePosicion}{t: $\toroide$, posicion : $\tupla{\ent}{\ent}$}{\IfThenElse{t[posicion_{0}][posicion_{1}]}{\\ 2 \leq cantVecinosVivos(t, posicion _{0},posicion _{1})\leq 3}{\\ cantVecinosVivos(t, posicion _{0},posicion _{1})= 3} }
 
 \end{ejercicio}
 
@@ -107,5 +106,14 @@
 
 \section{Decisiones tomadas}
 % Sólo para decisiones de alto nivel, no para explicar la solución a los ejercicios: CONSULTAR!
+\paragraph{Consideraciones generales.}
+Asumiendo que el toroide es válido, $|t[0]|$ es equivalente  a $ |t[i]| $ para todo $ 0 \leq i < |t|$ ya que cada subsecuencia tiene la misma cantidad de elementos.\newline
+	\enspace También, utilizamos la función auxiliar "pertenece" definida en clase para secuencias. La representamos con el símbolo matemático "$\in$"
+
+\paragraph{Ejercicio 1.}
+Consideramos un toroide válido a una secuencia de secuencias de booleanos con un mínimo de tres subsecuencias. Cada una de las cuales tenga la misma cantidad de elementos, con un mínimo de tres. 
+
+\paragraph{Ejercicio 4.}
+Consideramos que la relación entre la cantidad de casillas vivas y la de totales es la división entre ambas.
 
 \end{document}
