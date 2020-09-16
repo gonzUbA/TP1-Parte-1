@@ -67,7 +67,7 @@
 \begin{ejercicio}[:]
 \textbf{aux densidadPoblacion(t: $\toroide$) = $\float$}
 
-\auxil{densidadPoblacion(t: toroide) \, : \, $\float$ \enspace}{\newline \frac {(\sum_{i=0}^{|t[0]|-1} \sum_{j=0}^{|t|-1} \IfThenElse{t[i][j]}{1}{0})} {|t|*|t[0]|}}
+\auxil{densidadPoblacion(t: toroide) \, : \, $\float$ \enspace}{\newline \frac {(\sum_{i=0}^{|t|-1} \sum_{j=0}^{|t[0]|-1} \IfThenElse{t[i][j]}{1}{0})} {|t|*|t[0]|}}
 
 
 
